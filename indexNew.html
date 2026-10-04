@@ -1,1 +1,108 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        #diciottesimo {
+            background-color: #667eea;
+        }
+        
+        #diciottesimo:hover {
+            background-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        #praga {
+            background-color: #f093fb;
+        }
+        
+        #praga:hover {
+            background-color: #f082f5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+        
+        #serate {
+            background-color: #4facfe;
+        }
+        
+        #serate:hover {
+            background-color: #3da7fd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sofia</h1>
+        <div class="button-group">
+            <button id="diciottesimo">Diciottesimo</button>
+            <button id="praga">Praga</button>
+            <button id="serate">Serate</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('diciottesimo').addEventListener('click', function() {
+            console.log('Diciottesimo clicked');
+            // Add your action here
+        });
+        
+        document.getElementById('praga').addEventListener('click', function() {
+            console.log('Praga clicked');
+            // Add your action here
+        });
+        
+        document.getElementById('serate').addEventListener('click', function() {
+            console.log('Serate clicked');
+            // Add your action here
+        });
+    </script>
+</body>
+</html>
