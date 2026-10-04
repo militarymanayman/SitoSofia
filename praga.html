@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praga</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Praga</h1>
+            <button class="back-button" onclick="window.location.href='indexNew.html'">Torna Indietro</button>
+        </header>
 
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <h2>Foto da Praga</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/Praga/foto1.jpeg" alt="Praga foto 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto2.jpeg" alt="Praga foto 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto3.jpeg" alt="Praga foto 3">
+                </div>
+                <div class="gallery-item">
+                    <video controls width="300" height="300">
+                        <source src="images/Praga/video1.mp4" type="video/mp4">
+                        Video non disponibile
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto4.jpeg" alt="Praga foto 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto5.jpeg" alt="Praga foto 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto6.jpeg" alt="Praga foto 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Praga/foto7.jpeg" alt="Praga foto 7">
+                </div>
+            </div>
+        </section>
+
+        <section class="text-section">
+            <div class="text-content">
+                <h2>Ricordi da Praga</h2>
+                <p>
+                    Placeholder text - Aggiungi qui i tuoi ricordi e commenti su Praga!
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
