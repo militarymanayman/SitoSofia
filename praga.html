@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praga</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
         .back-button {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 22px;
             background-color: #667eea;
             color: white;
             border: none;
@@ -19,54 +49,174 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .back-button:hover {
             background-color: #5568d3;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
+
+        .gallery {
+            margin-bottom: 60px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2em;
+            font-weight: 300;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item-button {
+            width: 100%;
+            border: none;
+            padding: 0;
+            background: transparent;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1 / 1;
+            position: relative;
+        }
+
+        .gallery-item-button:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item-button img,
+        .gallery-item-button video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            background: #f3f3f3;
+        }
+
+        .video-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 12px;
+            padding: 6px 8px;
+            border-radius: 999px;
+        }
+
+        .text-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-content h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 300;
+        }
+
+        .text-content p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            color: #333;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .lightbox-media-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 80vh;
+        }
+
+        .lightbox-media-wrap img,
+        .lightbox-media-wrap video {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 12px;
+            background: #f7f7f7;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .text-section {
+                padding: 30px 20px;
+            }
+
+            .text-content h2 {
+                font-size: 1.5em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <h1>Praga</h1>
             <button class="back-button" onclick="window.location.href='indexNew.html'">Torna Indietro</button>
         </header>
 
-        <!-- Gallery Section -->
         <section class="gallery">
             <h2>Foto da Praga</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/Praga/foto1.jpeg" alt="Praga foto 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto2.jpeg" alt="Praga foto 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto3.jpeg" alt="Praga foto 3">
-                </div>
-                <div class="gallery-item">
-                    <video controls width="300" height="300">
-                        <source src="images/Praga/video1.mp4" type="video/mp4">
-                        Video non disponibile
-                    </video>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto4.jpeg" alt="Praga foto 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto5.jpeg" alt="Praga foto 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto6.jpeg" alt="Praga foto 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Praga/foto7.jpeg" alt="Praga foto 7">
-                </div>
-            </div>
+            <div id="galleryGrid" class="gallery-grid"></div>
         </section>
 
         <section class="text-section">
@@ -74,13 +224,121 @@
                 <h2>Right Round</h2>
                 <p>
                     Visto che Praga si è tenuta una grande parte di me, di te e tutti noi.
-Ho deciso di "trasformare" il tuo sito, in archivio di foto tue che mi piacevano, foto insieme etc.
-Spero che questa piccola trasformazione ti piaccia :)
+                    Ho deciso di "trasformare" il tuo sito, in archivio di foto tue che mi piacevano, foto insieme etc.
+                    Spero che questa piccola trasformazione ti piaccia :)
                 </p>
             </div>
         </section>
     </div>
 
-    <script src="script.js"></script>
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <div id="lightboxMedia" class="lightbox-media-wrap"></div>
+        </div>
+    </div>
+
+    <script>
+        const mediaItems = [
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.00.jpeg', alt: 'Praga foto 1' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01.jpeg', alt: 'Praga foto 2' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01 (1).jpeg', alt: 'Praga foto 3' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01 (2).jpeg', alt: 'Praga foto 4' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01 (3).jpeg', alt: 'Praga foto 5' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01 (4).jpeg', alt: 'Praga foto 6' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.01 (5).jpeg', alt: 'Praga foto 7' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02.jpeg', alt: 'Praga foto 8' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (1).jpeg', alt: 'Praga foto 9' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (2).jpeg', alt: 'Praga foto 10' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (3).jpeg', alt: 'Praga foto 11' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (4).jpeg', alt: 'Praga foto 12' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (5).jpeg', alt: 'Praga foto 13' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (6).jpeg', alt: 'Praga foto 14' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (7).jpeg', alt: 'Praga foto 15' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (8).jpeg', alt: 'Praga foto 16' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (9).jpeg', alt: 'Praga foto 17' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (10).jpeg', alt: 'Praga foto 18' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.02 (11).jpeg', alt: 'Praga foto 19' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.03.jpeg', alt: 'Praga foto 20' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.03 (1).jpeg', alt: 'Praga foto 21' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.27.03 (2).jpeg', alt: 'Praga foto 22' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.39.35.jpeg', alt: 'Praga foto 23' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.50.22.jpeg', alt: 'Praga foto 24' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.50.33.jpeg', alt: 'Praga foto 25' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.50.43.jpeg', alt: 'Praga foto 26' },
+            { type: 'image', src: 'images/Praga/WhatsApp Image 2026-10-04 at 18.50.49.jpeg', alt: 'Praga foto 27' },
+            { type: 'video', src: 'images/Praga/WhatsApp Video 2026-10-04 at 18.44.57.mp4', alt: 'Praga video 1' },
+            { type: 'video', src: 'images/Praga/WhatsApp Video 2026-10-04 at 18.50.12.mp4', alt: 'Praga video 2' },
+            { type: 'video', src: 'images/Praga/WhatsApp Video 2026-10-04 at 18.50.17.mp4', alt: 'Praga video 3' },
+            { type: 'video', src: 'images/Praga/WhatsApp Video 2026-10-04 at 18.50.27.mp4', alt: 'Praga video 4' },
+            { type: 'video', src: 'images/Praga/WhatsApp Video 2026-10-04 at 18.50.59.mp4', alt: 'Praga video 5' }
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxMedia = document.getElementById('lightboxMedia');
+        const closeButton = document.querySelector('.lightbox-close');
+
+        function createGalleryCard(item) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'gallery-item-button';
+            button.setAttribute('aria-label', item.alt);
+
+            if (item.type === 'video') {
+                button.innerHTML = `
+                    <video muted playsinline preload="metadata" src="${item.src}"></video>
+                    <span class="video-badge">Video</span>
+                `;
+            } else {
+                button.innerHTML = `<img src="${item.src}" alt="${item.alt}">`;
+            }
+
+            button.addEventListener('click', () => openLightbox(item));
+            galleryGrid.appendChild(button);
+        }
+
+        function openLightbox(item) {
+            lightboxMedia.innerHTML = '';
+
+            if (item.type === 'video') {
+                const video = document.createElement('video');
+                video.src = item.src;
+                video.controls = true;
+                video.autoplay = true;
+                video.playsInline = true;
+                lightboxMedia.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt;
+                lightboxMedia.appendChild(img);
+            }
+
+            lightbox.classList.add('show');
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxMedia.innerHTML = '';
+        }
+
+        closeButton.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('show')) {
+                closeLightbox();
+            }
+        });
+
+        mediaItems.forEach(createGalleryCard);
+    </script>
 </body>
 </html>
